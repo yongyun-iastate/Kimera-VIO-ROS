@@ -1,5 +1,7 @@
 FROM ros:noetic-ros-base
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN rm /etc/apt/sources.list.d/ros1-latest.list \
   && rm /usr/share/keyrings/ros1-latest-archive-keyring.gpg
 
