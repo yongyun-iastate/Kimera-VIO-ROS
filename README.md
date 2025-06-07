@@ -6,22 +6,12 @@ ROS Wrapper for [Kimera](https://github.com/MIT-SPARK/Kimera).
     <img src="docs/media/Kimera-VIO-ROS_mesh.gif">
 </div>
 
-## Publications
+# 0. Custom Usage
+## A. Docker
+$ docker build -t kimera_vio:noetic .
 
-We kindly ask to cite our paper if you find this library useful:
+$ docker run --gpus all -it --ipc=host --net=host --privileged -e DISPLAY=unix$DISPLAY -v ~/Downloads:/data -v /tmp/.X11-unix:/tmp/.X11-unix:rw -e NVIDIA_DRIVER_CAPABILITIES=all kimera_vio:noetic /bin/bash
 
-- A. Rosinol, M. Abate, Y. Chang, L. Carlone, [**Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping**](https://arxiv.org/abs/1910.02490). IEEE Intl. Conf. on Robotics and Automation (ICRA), 2020. [arXiv:1910.02490](https://arxiv.org/abs/1910.02490).
- 
- ```bibtex
- @InProceedings{Rosinol20icra-Kimera,
-   title = {Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping},
-   author = {Rosinol, Antoni and Abate, Marcus and Chang, Yun and Carlone, Luca},
-   year = {2020},
-   booktitle = {IEEE Intl. Conf. on Robotics and Automation (ICRA)},
-   url = {https://github.com/MIT-SPARK/Kimera},
-   pdf = {https://arxiv.org/pdf/1910.02490.pdf}
- }
-```
 
 # 1. Installation
 

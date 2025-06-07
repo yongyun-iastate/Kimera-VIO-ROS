@@ -38,5 +38,6 @@ RUN cd /catkin_ws/src/ && wstool init && \
 RUN apt-get install -y ros-noetic-image-pipeline ros-noetic-geometry ros-noetic-rviz
 
 RUN . /opt/ros/noetic/setup.sh && cd /catkin_ws && \
+     rm -rf /catkin_ws/src/gtsam && apt update && apt install ros-noetic-gtsam &&\
     catkin init && catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
     catkin build
