@@ -29,15 +29,18 @@ RUN apt-get install -y ros-noetic-image-geometry ros-noetic-pcl-ros \
 
 RUN mkdir -p /catkin_ws/src/
 RUN git clone https://github.com/MIT-SPARK/Kimera-VIO-ROS.git /catkin_ws/src/Kimera-VIO-ROS
+RUN https://github.com/MIT-SPARK/Kimera-Semantics.git /catkin_ws/src/Kimera-Semantics
 RUN cd /catkin_ws/src/Kimera-VIO-ROS 
     # && git checkout ___
 RUN cd /catkin_ws/src/ && wstool init && \
-    wstool merge Kimera-VIO-ROS/install/kimera_vio_ros_https.rosinstall && wstool update
+    wstool merge Kimera-VIO-ROS/install/kimera_vio_ros_https.rosinstall &&\
+    wstool merge Kimera-Semantics/install/kimera_semantics_https.rosinstall &&\
+    wstool update
 
 # Build catkin workspace
 RUN apt-get install -y ros-noetic-image-pipeline ros-noetic-geometry ros-noetic-rviz
 
 RUN . /opt/ros/noetic/setup.sh && cd /catkin_ws && \
      rm -rf /catkin_ws/src/gtsam && apt update && apt install ros-noetic-gtsam &&\
-    catkin init && catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
+    catkin init && catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_STANDARD=14&& \
     catkin build
