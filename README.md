@@ -12,6 +12,8 @@ $ docker build -t kimera_vio:noetic .
 
 $ docker run --gpus all -it --ipc=host --net=host --privileged -e DISPLAY=unix$DISPLAY -v ~/Downloads:/data -v /tmp/.X11-unix:/tmp/.X11-unix:rw -e NVIDIA_DRIVER_CAPABILITIES=all kimera_vio:noetic /bin/bash
 
+
+## B. uHumans
 $ roslaunch kimera_vio_ros kimera_vio_ros_uhumans2.launch  run_stereo_dense:=true online:=true
 
 $ roslaunch kimera_semantics_ros kimera_semantics_uHumans2.launch online:=true 
@@ -20,6 +22,10 @@ $ rviz -d /catkin_ws/src/Kimera-Semantics/kimera_semantics_ros/rviz/kimera_seman
 
 $ rosbag play --clock tesse_cd/tesse_cd_office.bag
 
+## C. custom dataset
+$ roslaunch kimera_vio_ros rosbot_path_mono.launch  online:=true
+
+$ rosbag play --clock path5.bag 
 
 # 1. Installation
 

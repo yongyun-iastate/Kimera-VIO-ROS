@@ -30,10 +30,10 @@ file and include this one to launch KimeraVIO on the dataset of your choice -->
        Logger utils (if online is true) or rosbag (if online is false),
        and processing data from the gt_topic rostopic -->
   <arg name="log_gt_data" default="false"/>
-  <arg name="gt_topic"    default="Rosbot2R"/>
+  <arg name="gt_topic"    default=""/>
 
   <!-- If true, KimeraVIO will enable the LoopClosureDetector module. -->
-  <arg name="use_lcd" default="false"/>
+  <arg name="use_lcd" default="true"/>
   <!-- If true, KimeraVIO will disable PGO for the LoopClosureDetector module. -->
   <arg name="lcd_no_optimize" default="false"/>
   <!-- If true, KimeraVIO will not call detection LoopClosureDetector module. -->
