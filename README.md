@@ -22,6 +22,16 @@ $ rviz -d /catkin_ws/src/Kimera-Semantics/kimera_semantics_ros/rviz/kimera_seman
 
 $ rosbag play --clock tesse_cd/tesse_cd_office.bag
 
+## C. KInect_Azure camera
+$ roslaunch kimera_vio_ros kimera_vio_ros_kinect_azure.launch run_stereo_dense:=false online:=true
+
+$ roslaunch kimera_semantics_ros kimera_semantics_uHumans2.launch online:=true 
+
+$ rviz -d /catkin_ws/src/Kimera-VIO-ROS/rviz/kimera_vio_kinect_azure.rviz
+
+$ rosbag play --clock tesse_cd/tesse_cd_office.bag
+
+
 ## C. custom dataset
 $ roslaunch kimera_vio_ros rosbot_path_mono.launch  online:=true
 
